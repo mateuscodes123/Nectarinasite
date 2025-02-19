@@ -1,0 +1,86 @@
+<!doctype HTML>
+<html>
+<head>
+    <title>nectarina</title>
+    <style>
+        html {
+            color: darkblue;
+            font-size: 25px;
+            font-weight: 600;
+            background: lavender;
+        }
+
+        body {
+            /* Largura e altura do body não são necessárias aqui, a menos que você queira um tamanho fixo para o corpo da página */
+        }
+
+        .video { /* Estilo para todos os vídeos */
+            width: 360px; /* Largura padrão para os vídeos */
+        }
+
+        #dago {
+            width: 700px; /* Largura específica para o vídeo #dago */
+        }
+
+        #paisagem {
+            width: 700px; /* Largura específica para o vídeo #paisagem */
+        }
+
+        #serchbar {
+            width: 800px;
+            height: 100px;
+        }
+
+        #inverno {
+            width: 700px; /* Largura específica para o vídeo #inverno */
+        }
+
+        #mydog {
+            width: 700px; /* Largura específica para o vídeo #mydog */
+        }
+
+        .p { /* Estilo para todos os parágrafos com a classe "p" */
+            width: 360px; /* Largura para os parágrafos */
+        }
+    </style>
+</head>
+<body>
+    <img src="nectarina.png">
+
+    <input id="serchbar" type="text" name="serch" placeholder="pesquisar" onkeyup="serch()">
+    <ul>
+        <li>  <video src="sample.mp4" class="video" id="dago" controls poster="dagedago.gif"></video>
+            <p class="p">meme dagedago</p>
+        </li>
+        <li>
+            <video src="Sample video.mp4" class="video" id="paisagem" controls poster="capa paisagem.jpg"></video>
+            <p class="p">paisagem clássica</p>
+        </li>
+        <li>
+            <video src="papel de parede.mp4" class="video" id="inverno" controls poster="capa inverno.jpg"></video>
+            <p class="p">inverno nas montanhas</p>
+        </li>
+        <li>
+            <video src="meucachorro.mp4" class="video" id="mydog" controls poster="capa sansao.jpg"></video>
+            <p class="p">meu cachorro dormindo</p>
+        </li>
+    </ul>
+
+    <script>
+        function serch() {
+            let input = document.getElementById('serchbar').value.toLowerCase();
+            let videos = document.getElementsByClassName('video');
+            for (let i = 0; i < videos.length; i++) {
+                let paragrafo = videos[i].nextElementSibling; // Obtém o próximo elemento irmão (o parágrafo)
+                if (paragrafo.innerHTML.toLowerCase().includes(input)) {
+                    videos[i].style.display = "block";
+                    paragrafo.style.display = "block";
+                } else {
+                    videos[i].style.display = "none";
+                    paragrafo.style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
